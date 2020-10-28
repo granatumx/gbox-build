@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This file is run inside the gbox-build docker image to run the build process.
+# It copies the items first so that no destruction of the build directory occurs.
+
 rsync -av /tmp/build/ /tmp/deploy/
 
 cp Makefile /tmp/deploy
