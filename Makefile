@@ -17,7 +17,7 @@ shell:
 # the passed in host working directory HOST_WD
 doc:
 	docker run --rm -v $(HOST_WD):/tmp/try -v /var/run/docker.sock:/var/run/docker.sock -it granatumx/doc:$(VER) doconce format pandoc /tmp/try/README.do.txt --github_md
-	rm -rf README.dlog
+	docker run --rm -v $(HOST_WD):/tmp/try -v /var/run/docker.sock:/var/run/docker.sock -it granatumx/doc:$(VER) rm -rf /tmp/try/README.dlog
 
 test:
-	docker run --rm -e GRANATUM_SWD=/tmp/test -v $(HOST_WD)/test:/tmp/test -v /var/run/docker.sock:/var/run/docker.sock -it $(GBOX) /tmp/test/test.sh 
+	docker run --rm -e GRANATUM_SWD=/tmp/test -v $(HOST_WD)/runtest:/tmp/test -v /var/run/docker.sock:/var/run/docker.sock -it $(GBOX) /tmp/test/test.sh 

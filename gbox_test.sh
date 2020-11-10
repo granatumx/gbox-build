@@ -17,7 +17,7 @@ if [[ "$(docker images -q $GBOX:$VER 2> /dev/null)" == "" ]]; then
 	exit
 fi
 echo -e "\033[32mRunning tests, stand back.\033[0m"
-if [[ -d "test/" ]]; then
+if [[ -d "runtest/" ]]; then
 	make --always-make test
 else
 	echo -e "\003[0;31mNo tests found.\033[0m"
