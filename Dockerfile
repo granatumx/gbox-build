@@ -3,6 +3,7 @@
 FROM granatumx/gbox-base:1.0.0
 
 # Allow granatumx to kick off docker containers itself
+RUN apt-get update
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
