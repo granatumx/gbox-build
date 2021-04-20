@@ -22,5 +22,7 @@ if [[ -d "runtest/" ]]; then
 else
 	echo -e "\003[0;31mNo tests found.\033[0m"
 fi
+echo -e "\033[32mCopying results back to runtest directory.\033[0m"
+rsync -av /tmp/deploy/runtest/ /tmp/build/runtest/
 echo "You exit the build environment and run:"
 echo "docker push $GBOX:$VER"
